@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  inventoryproject:
+    image: inventoryproject
+    build:
+      context: .
+    ports:
+      - 8000:8000
+    env_file:
+      - .env
+    volumes:
+      - static_data:/vol/web
+    environment:
+      - DEBUG=1
+      - ALLOWED_HOSTS=ec2-35-162-141-108.us-west-2.compute.amazonaws.com,0.0.0.0,localhost,127.0.0.1
+
+  proxy:
+    build:
+      context: ./proxy
+    volumes:
+      - static_data:/vol/static
+    ports:
+      - 8080:8080
+    depends_on:
+      - inventoryproject
+
+volumes:
+  static_data:

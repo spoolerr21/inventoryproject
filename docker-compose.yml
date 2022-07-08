@@ -1,0 +1,17 @@
+version: '3.7'
+
+
+services:
+  inventoryproject:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./inventoryproject:/inventoryproject
+    command: sh -c "python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DEBUG=1
+      - ALLOW_HOSTS=ec2-35-162-141-108.us-west-2.compute.amazonaws.com,0.0.0.0,localhost,127.0.0.1
