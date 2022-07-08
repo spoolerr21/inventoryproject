@@ -8,6 +8,7 @@
 - Using PostgreSQL as Database running on Amazon RDS
 - App Secrets are managed by AWS Secret Manager
 - Djangop Project are contenerized using Docker runnning on AWS EC2 instance
+- NGINX is used as reverse proxy
 - Domain registered on godaddy.com, email service is zoho.com
 
 *Great Thanks to Nucamp Bootcamp*
